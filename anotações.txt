@@ -1,0 +1,20 @@
+Erro ao instalar a dependência     "@react-native-firebase/app": "^16.1.1"
+
+* What went wrong:
+Execution failed for task ':app:checkDebugAarMetadata'.
+> A failure occurred while executing com.android.build.gradle.internal.tasks.CheckAarMetadataWorkAction
+   > The minCompileSdk (31) specified in a
+     dependency's AAR metadata (META-INF/com/android/build/gradle/aar-metadata.properties)
+     is greater than this module's compileSdkVersion (android-30).
+     Dependency: androidx.browser:browser:1.4.0.
+     AAR metadata file: C:\Users\Fernando Nast\.gradle\caches\transforms-3\6882a7cc3e226e5e40098ea918564154\transformed\browser-1.4.0\META-INF\com\android\build\gradle\aar-metadata.properties.
+
+
+Solução: Em app/build.gradle, troque a linha 
+    // compileSdkVersion rootProject.ext.compileSdkVersion 
+
+    para a linha:
+
+    compileSdkVersion 31
+
+Sugestão desse link: https://stackoverflow.com/questions/69034879/how-can-i-resolve-the-error-the-mincompilesdk-31-specified-in-a-dependencys
